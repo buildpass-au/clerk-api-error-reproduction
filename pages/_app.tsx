@@ -19,8 +19,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ClerkProvider
-      publicApiKey={process.env.NEXT_PUBLIC_CLERK_VISITOR_PUBLISHABLE_KEY}
-      {...pageProps}
+      publishableKey={
+        process.env.NEXT_PUBLIC_CLERK_WORKER_PUBLISHABLE_KEY ?? ""
+      }
     >
       <header>
         <SignedOut>
