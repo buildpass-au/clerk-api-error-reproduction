@@ -1,14 +1,15 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+import type { NextPage } from "next";
+import { WorkerLayout } from "../layouts/WorkerLayout";
 
-export default function Home() {
-  const router = useRouter();
+export type NextPageWithLayout<T = object> = NextPage<T> & {
+  getLayout?: React.FC;
+};
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      router.push("/admin");
-    }
-  }, [router]);
+const WorkerPage: NextPageWithLayout = () => {
+  return <div>Worker Page</div>;
+};
 
-  return <div></div>;
-}
+// @ts-ignore
+WorkerPage.getLayout = WorkerLayout;
+
+export default WorkerPage;
