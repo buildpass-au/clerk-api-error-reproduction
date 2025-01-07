@@ -1,10 +1,10 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import { HeaderLayout } from "./HeaderLayout";
 
-export const WorkerLayout = ({ children }: { children: React.ReactNode }) => {
+export const PublicLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ClerkProvider
-      publishableKey={process.env.NEXT_PUBLIC_CLERK_WORKER_PUBLISHABLE_KEY}
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLIC_PUBLISHABLE_KEY}
     >
       <HeaderLayout />
       {children}

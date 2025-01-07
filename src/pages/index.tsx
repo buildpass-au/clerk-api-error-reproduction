@@ -1,15 +1,15 @@
 import type { NextPage } from "next";
-import { WorkerLayout } from "../layouts/WorkerLayout";
+import { PublicLayout } from "../layouts/PublicLayout";
 
 export type NextPageWithLayout<T = object> = NextPage<T> & {
   getLayout?: React.FC;
 };
 
-const WorkerPage: NextPageWithLayout = () => {
-  return <div>Worker Page</div>;
+const PublicPage: NextPageWithLayout = () => {
+  return <div>Public Page</div>;
 };
 
 // @ts-ignore
-WorkerPage.getLayout = WorkerLayout;
+PublicPage.getLayout = PublicLayout;
 
-export default WorkerPage;
+export default PublicPage;

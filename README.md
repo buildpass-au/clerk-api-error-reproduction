@@ -16,7 +16,10 @@ Here's the error:
 }
 ```
 
-Please see files `pages/_app.tsx` and `pages/index.tsx` for more details.
+### Pages
+
+- Public: "/" `(This is where the Clerk API errors happens)`
+- Admin: "/admin"
 
 ## Running the template
 
