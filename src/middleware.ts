@@ -3,7 +3,7 @@ import {
   createClerkClient,
   createRouteMatcher,
 } from "@clerk/nextjs/server";
-import { NextRequest, NextResponse } from "next/server";
+import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
 
 const APP_HOST = "localhost:3000";
 
@@ -48,7 +48,10 @@ export const clerkClient = createClerkClient({
   secretKey: process.env.CLERK_SECRET_KEY,
 });
 
-export default async function middleware(req: NextRequest, event) {
+export default async function middleware(
+  req: NextRequest,
+  event: NextFetchEvent
+) {
   return clerkMiddleware(async (auth) => {
     const shouldAuth =
       !isUnauthedPath(req) && !isUnauthedExtension(req.nextUrl.pathname);
